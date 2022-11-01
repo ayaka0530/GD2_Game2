@@ -7,7 +7,7 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //ŽŽ‚µ
     }
 
     // Update is called once per frame
