@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private float speed = 0.05f;
 
@@ -35,5 +35,13 @@ public class player : MonoBehaviour
         }
 
         transform.position = position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<Enemy>().Damage();
+        }
     }
 }

@@ -4,31 +4,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(0.5f, 0, 0);
+        
+            Vector2 pos = transform.position;
 
-        //if (transform.position.y > 5)
-        //{
-        //    Destroy(gameObject);
-        //}
+            pos.x += 0.05f;
 
-        Vector2 pos = transform.position;
+            transform.position = new Vector2(pos.x, pos.y);
 
-        pos.x += 0.05f;
-
-        transform.position = new Vector2(pos.x, pos.y);
-
-        if (pos.x >= 20)
-        {
-            Destroy(this.gameObject);
-        }
+            if (pos.x >= 10)
+            {
+                Destroy(this.gameObject);
+            }
     }
 }
