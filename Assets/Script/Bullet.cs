@@ -12,17 +12,18 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-            Vector2 pos = transform.position;
+        //”ò‚ñ‚Å‚¢‚­•ûŒü
+        Vector2 pos = transform.position;
 
-            pos.x += 0.05f;
+        pos.x += 0.05f;
 
-            transform.position = new Vector2(pos.x, pos.y);
+        transform.position = new Vector2(pos.x, pos.y);
 
-            if (pos.x >= 10)
-            {
-                Destroy(this.gameObject);
-            }
+        //‰æ–ÊŠOo‚½‚ç–³‚­‚È‚é
+        if (pos.x >= 10)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

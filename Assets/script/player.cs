@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 0.05f;
+    public GameManager gameManager;
 
+    private float speed = 0.05f;
+    private int energyAmount;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,16 @@ public class Player : MonoBehaviour
         }
 
         transform.position = position;
+
+        //取得したエナジー毎にレベルアップ
+        //エナジーの数を取得
+        //energyAmount = gameManager.TeachEnergyAmount();
+
+        //if(energyAmount <= 300)
+        //{
+
+
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

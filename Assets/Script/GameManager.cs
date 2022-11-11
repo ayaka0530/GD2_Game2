@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int playerLv;
+    private int enemyCount;
+    private int energyCount;
+    //public Text textComponent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -20,16 +22,37 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public int TeachLvCount()
+    public void AddEnemyCount()
     {
-        return playerLv;
+        enemyCount = enemyCount + 1;
+        Debug.Log("enemyCount:" + enemyCount);
+        //textComponent.text = "enemyCount : " + enemyCount;
     }
 
-    public void AddHatCount()
+    //å∏ÇÁÇ∑ä÷êî
+    public void SubtractEnemyCount()
+    {
+        enemyCount = enemyCount - 1;
+        Debug.Log("enemyCount:" + enemyCount);
+        //textComponent.text = "enemyCount : " + enemyCount;
+    }
+
+    public int TeachEnemyCount()
     {
 
-        playerLv = playerLv + 1;
-        //Debug.Log("HatCount:" + hatCount);
+        return enemyCount;
+    }
 
+    public void AddEnergyCount()
+    {
+        energyCount = energyCount + 1;
+        Debug.Log("energyCount:" + energyCount);
+        //textComponent.text = "HatCount : " + energyCount;
+    }
+
+    public int TeachEnergyAmount()
+    {
+
+        return energyCount;
     }
 }
