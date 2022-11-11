@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     private float speed = 0.05f;
     private int energyAmount;
+    private int power;
+    private int playerLv;
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +43,18 @@ public class Player : MonoBehaviour
 
         //取得したエナジー毎にレベルアップ
         //エナジーの数を取得
-        //energyAmount = gameManager.TeachEnergyAmount();
+        energyAmount = gameManager.TeachEnergyAmount();
 
-        //if(energyAmount <= 300)
-        //{
-
-
-        //}
+        if (energyAmount <= 0)
+        {
+            power = 0;
+            power = TeachPlayerPower();
+        }
+        else if (energyAmount <= 100)
+        {
+            power = 3;
+            power = TeachPlayerPower();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,5 +63,10 @@ public class Player : MonoBehaviour
         {
             other.GetComponent<Enemy>().Damage();
         }
+    }
+
+    public int TeachPlayerPower()
+    {
+        return power;
     }
 }

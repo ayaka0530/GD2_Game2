@@ -19,14 +19,14 @@ public class Charge : MonoBehaviour
         //スペースキーが押されている時
         if (Input.GetKey(KeyCode.Space))
         {
-            //ChargeCount++;
+            ChargeCount++;
 
             //カウントが10になったら攻撃
-            //if (ChargeCount >= 10)
-            //{
+            if (ChargeCount >= 10)
+            {
                 Instantiate(laser, transform.position, Quaternion.identity);
-                //ChargeCount = 0;
-            //}
+                ChargeCount = 0;
+            }
         }
     }
 }

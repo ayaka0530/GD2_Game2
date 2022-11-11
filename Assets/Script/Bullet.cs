@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameManager gameManager;
+
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -20,17 +22,18 @@ public class Bullet : MonoBehaviour
         transform.position = new Vector2(pos.x, pos.y);
 
         //‰æ–ÊŠOo‚½‚ç–³‚­‚È‚é
-        if (pos.x >= 10)
+        if (pos.x >= 9)
         {
             Destroy(this.gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<Enemy>().Damage();
+            gameManager.AddEnergyCount();
         }
     }
 }

@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     private int enemyCount;
     private int energyCount;
+    private int scoreCount;
+    private int power;
+
     //public Text textComponent;
 
     // Start is called before the first frame update
@@ -39,7 +42,6 @@ public class GameManager : MonoBehaviour
 
     public int TeachEnemyCount()
     {
-
         return enemyCount;
     }
 
@@ -52,7 +54,18 @@ public class GameManager : MonoBehaviour
 
     public int TeachEnergyAmount()
     {
-
         return energyCount;
+    }
+
+    public void AddScoreCount()
+    {
+        scoreCount = scoreCount + 100;
+        Debug.Log("scoreCount:" + scoreCount);
+        //textComponent.text = "HatCount : " + energyCount;
+    }
+
+    public int TeachPlayerPower()
+    {
+        return power;
     }
 }
