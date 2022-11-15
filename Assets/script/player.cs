@@ -6,15 +6,20 @@ public class Player : MonoBehaviour
 {
     public GameManager gameManager;
 
-    private float speed = 0.05f;
+    private float speed = 0.2f;
+    private int playerHp;
     private int energyAmount;
-    private int power;
+    private int power = 1;
     private int playerLv;
+    private GameObject[] shots;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        shots = GameObject.FindGameObjectsWithTag("Shot");
+
+        playerHp = 3;
     }
 
     // Update is called once per frame
@@ -45,28 +50,57 @@ public class Player : MonoBehaviour
         //エナジーの数を取得
         energyAmount = gameManager.TeachEnergyAmount();
 
-        if (energyAmount <= 0)
-        {
-            power = 0;
-            power = TeachPlayerPower();
-        }
-        else if (energyAmount <= 100)
+        //if (energyAmount <= 0)
+        //{
+        //    power = power + 0;
+        //}
+        //else
+        if (energyAmount >= 100)
         {
             power = 3;
-            power = TeachPlayerPower();
+        }
+        //else if (energyAmount >= 500)
+        //{
+        //    power = 6;
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            for(int i = 0; i <= 1; i++)
+            {
+                shots[i].GetComponent<Shot>().mode = 0;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            for (int i = 0; i <= 1; i++)
+            {
+                shots[i].GetComponent<Shot>().mode = 1;
+            }
+        }
+
+        if (playerHp <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().Damage();
+            other.GetComponent<Enemy>().EnemyDamage();
         }
     }
 
     public int TeachPlayerPower()
     {
         return power;
+    }
+
+    public void PlayerDamage()
+    {
+        playerHp = playerHp - 1;
     }
 }

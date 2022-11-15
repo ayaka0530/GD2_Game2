@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         enemyHp = 3;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
         //”ò‚ñ‚Å‚¢‚­•ûŒü
         Vector2 pos = transform.position;
 
-        pos.x -= 0.01f;
+        pos.x -= 0.05f;
 
         transform.position = new Vector2(pos.x, pos.y);
 
@@ -34,7 +35,14 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void Damage()
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.GetComponent<Player>().PlayerDamage();
+        }
+    }
+    public void EnemyDamage()
     {
         playerPower = player.TeachPlayerPower();
         enemyHp = enemyHp - playerPower;
