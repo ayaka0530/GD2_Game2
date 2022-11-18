@@ -9,6 +9,8 @@ public class Shot : MonoBehaviour
     public float angle = 60;
     public int mode = 0;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

@@ -20,7 +20,7 @@ public class Laser : MonoBehaviour
     {
         Vector2 pos = transform.position;
 
-        pos.x += 0.05f;
+        pos.x += 0.25f;
 
         transform.position = new Vector2(pos.x, pos.y);
 

@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
+    //敵がプレイヤーにあたったらプレイヤーにダメージ
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -42,11 +44,13 @@ public class Enemy : MonoBehaviour
             other.GetComponent<Player>().PlayerDamage();
         }
     }
+
+    //敵に入るダメージの計算
     public void EnemyDamage()
     {
         playerPower = player.TeachPlayerPower();
         enemyHp = enemyHp - playerPower;
-        Debug.Log("enemyHp" + enemyHp);
+        //Debug.Log("enemyHp" + enemyHp);
     }
 
 }

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private int scoreCount;
     private int power;
 
-    //public Text textComponent;
+    public Text textComponent;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     {
         scoreCount = scoreCount + 100;
         Debug.Log("scoreCount:" + scoreCount);
-        //textComponent.text = "HatCount : " + energyCount;
+        textComponent.text = "SCORE: " + scoreCount;
     }
 
     public int TeachPlayerPower()

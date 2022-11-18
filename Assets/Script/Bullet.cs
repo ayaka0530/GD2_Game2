@@ -45,6 +45,7 @@ public class Bullet : MonoBehaviour
         {
             other.GetComponent<Enemy>().EnemyDamage();
             gameManager.AddEnergyCount();
+            gameManager.AddScoreCount();
         }
     }
 }
